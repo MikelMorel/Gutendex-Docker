@@ -1,0 +1,45 @@
+Docker Exam
+===========
+
+General
+-------
+Project Gutenberg is a public store of books that are in public domain.
+The application you are about to dockerize, "gutindex", builds a searchable
+index of all the books in Project guttenberg and allows users to search by
+book name, author etc.
+
+Gutindex uses:
+(1) python & django to create the index and serve the files
+(2) postgres to store and manage the index
+(3) static html to make a lovely UI for people that want to try the API
+
+The task
+--------
+(1) Copy the source code from 'project' folder
+
+This is actually a fork from https://github.com/garethbjohnson/gutendex. 
+Reading the documents is nicer in Github, so I recommend you use it BUT our copy
+is _easier_ to dockerize - so DO NOT try to dockerize to one in github!
+
+(2) Dockerize gutindex
+Take into account that you need to handle all installation aspects: the app, the schema, the data upload on initialization, etc.
+
+Gutindex installation guide is located at https://github.com/garethbjohnson/gutendex/wiki/Installation-Guide
+
+(3) Create Docker compose of the following topology:
+- Postgres db
+- Gutindex backend
+- NginX serving the static files and acting as a reverse proxy
+
+- Once the system is set up, you should be able to find out how many Arthur Conan Doyle books are found in the database by curling "/books/?search=arthur%20conan%20doyle" {The right answer is 14} 
+
+Important:
+----------
+(1) Gutindex docker image must not contain the static files
+(2) Database should be persisted between restarting of containers
+(3) Starting a system from scratch (empty volumes) must be stable, regardless of the order in which containers start being functional
+(4) Concentrate on making things work first. Optimize later. 
+(5) No need to make e-mail functionality work
+(6) Note that we use nginx instead of apache. dont get confused.
+
+Good Luck!
