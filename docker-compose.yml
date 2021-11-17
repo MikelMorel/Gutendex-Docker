@@ -1,0 +1,26 @@
+version: "3.0"
+
+services:
+
+
+
+  db:
+    image: postgres:14.1    # slim it down
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: gutendex 
+    volumes:
+      - wdata:/var/lib/postgresql/data
+ 
+    
+
+
+  app:
+    build: ./project 
+
+
+
+volumes:
+  wdata: 
+
+
