@@ -1,0 +1,3 @@
+CREATE DATABASE gutendex;
+CREATE USER gutendex WITH PASSWORD 'gutendex';
+GRANT ALL PRIVILEGES ON DATABASE gutendex TO gutendex;
